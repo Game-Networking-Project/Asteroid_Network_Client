@@ -1,13 +1,14 @@
 #pragma once
 #include "Main.h"
 
+
 // ships data
 struct ShipsState
 {
 	AEVec2 Position;
 	AEVec2 Velocity;
-	float CurrentDirection; // for rotation
-	uint32_t lastFiredTime; // time stamp on when 
+	f32 CurrentDirection; // for rotation
+	f32 lastFiredTime; // time stamp on when 
 	bool isFiring;
 };
 
@@ -38,3 +39,5 @@ struct BulletStateUpdateMessage {
 	uint32_t playerID;        
 	BulletsState bulletState;  // Bullet state (position, velocity, etc.)
 };
+
+void processMessage();

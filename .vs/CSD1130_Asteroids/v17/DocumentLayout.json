@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\ShipsData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameStateMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Src\\GameStateMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\ShipsData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Src\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameStateMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Src\\GameStateMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameStateMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Include\\GameStateMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameState_Asteroids.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Include\\GameState_Asteroids.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\Collision.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Src\\Collision.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\ShipsData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameStateMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EC5E8CF5-9A2C-473F-9354-442034368150}|CSD1130_Asteroids\\CSD1130_Asteroids.vcxproj|solutionrelative:CSD1130_Asteroids\\Include\\GameStateMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,24 +34,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Collision.cpp",
-              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\Collision.cpp",
-              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Src\\Collision.cpp",
-              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\Collision.cpp",
-              "RelativeToolTip": "CSD1130_Asteroids\\Src\\Collision.cpp",
+              "DocumentIndex": 5,
+              "Title": "GameStateMgr.h",
+              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameStateMgr.h",
+              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Include\\GameStateMgr.h",
+              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameStateMgr.h",
+              "RelativeToolTip": "CSD1130_Asteroids\\Include\\GameStateMgr.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-26T09:47:34.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameStateMgr.cpp",
+              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
+              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
+              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
+              "RelativeToolTip": "CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-26T09:47:47.592Z",
+              "WhenOpened": "2025-03-26T09:47:33.385Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "ShipsData.cpp",
+              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.cpp",
+              "RelativeDocumentMoniker": "CSD1130_Asteroids\\ShipsData.cpp",
+              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.cpp",
+              "RelativeToolTip": "CSD1130_Asteroids\\ShipsData.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-26T09:45:24.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameState_Asteroids.cpp",
+              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
+              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
+              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
+              "RelativeToolTip": "CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAEUAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-26T09:47:37.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "GameState_Asteroids.h",
               "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameState_Asteroids.h",
               "RelativeDocumentMoniker": "CSD1130_Asteroids\\Include\\GameState_Asteroids.h",
@@ -73,79 +103,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "GameState_Asteroids.cpp",
-              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
-              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
-              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
-              "RelativeToolTip": "CSD1130_Asteroids\\Src\\GameState_Asteroids.cpp",
-              "ViewState": "AgIAAIABAAAAAAAAAAAAAGwAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-26T09:47:37.64Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GameStateMgr.h",
-              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameStateMgr.h",
-              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Include\\GameStateMgr.h",
-              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Include\\GameStateMgr.h",
-              "RelativeToolTip": "CSD1130_Asteroids\\Include\\GameStateMgr.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-26T09:47:34.798Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GameStateMgr.cpp",
-              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
-              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
-              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
-              "RelativeToolTip": "CSD1130_Asteroids\\Src\\GameStateMgr.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-26T09:47:33.385Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Main.cpp",
-              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\Main.cpp",
-              "RelativeDocumentMoniker": "CSD1130_Asteroids\\Src\\Main.cpp",
-              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\Src\\Main.cpp",
-              "RelativeToolTip": "CSD1130_Asteroids\\Src\\Main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-26T09:47:30.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "ShipsData.h",
               "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.h",
               "RelativeDocumentMoniker": "CSD1130_Asteroids\\ShipsData.h",
               "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.h",
               "RelativeToolTip": "CSD1130_Asteroids\\ShipsData.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-26T09:46:41.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ShipsData.cpp",
-              "DocumentMoniker": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.cpp",
-              "RelativeDocumentMoniker": "CSD1130_Asteroids\\ShipsData.cpp",
-              "ToolTip": "C:\\Users\\ASUS ROG ZEPHYRUS\\source\\repos\\Asteroid_Network\\CSD1130_Asteroids\\ShipsData.cpp",
-              "RelativeToolTip": "CSD1130_Asteroids\\ShipsData.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-26T09:45:24.063Z",
               "EditorCaption": ""
             }
           ]
