@@ -173,8 +173,10 @@
     <ClInclude Include="Include\GameState_Asteroids.h" />
     <ClInclude Include="Include\Main.h" />
     <ClInclude Include="Include\Scoreboard.h" />
+    <ClInclude Include="ShipsData.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ShipsData.cpp" />
     <ClCompile Include="Src\Collision.cpp" />
     <ClCompile Include="Src\GameStateMgr.cpp" />
     <ClCompile Include="Src\GameState_Asteroids.cpp" />
