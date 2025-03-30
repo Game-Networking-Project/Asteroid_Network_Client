@@ -25,15 +25,19 @@ extern double	g_appTime;
 
 // ---------------------------------------------------------------------------
 // includes
-
+#include <WinSock2.h>
+#include <ws2tcpip.h>
 #include "AEEngine.h"
 #include "Math.h"
+#include <map>
+#include <vector>
 
 #include "GameStateMgr.h"
 #include "GameState_Asteroids.h"
 #include "Collision.h"
-
-
+#include "ShipsData.h"
+#include "CommandID.h"
+#include <iostream>
 #endif
 
 

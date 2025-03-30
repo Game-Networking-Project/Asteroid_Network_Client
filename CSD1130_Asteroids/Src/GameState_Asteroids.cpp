@@ -24,9 +24,10 @@ prior written consent of DigiPen Institute of Technology is prohibited.
  */
 /******************************************************************************/
 
-#include "main.h"
+#include "Main.h"
 #include <stdlib.h>
 #include <time.h>
+
 /******************************************************************************/
 /*!
 	Defines
@@ -134,6 +135,9 @@ static long					sShipLives;									// The number of lives left
 // the score = number of asteroid destroyed
 static unsigned long		sScore;										// Current score
 
+// track bullet spawn times
+static std::map<GameObjInst*, f32> bulletSpawnTimes;
+
 // ---------------------------------------------------------------------------
 
 // functions to create/destroy a game object instance
@@ -147,6 +151,7 @@ void				Random_value_Generator(AEVec2& scale, AEVec2& pPos, AEVec2& pVel);
 
 void				Random_number_asteroid_generator(int& number);
 
+void				SetPlayerColor(uint8_t playerID);
 /******************************************************************************/
 /*!
 	"Load" function of this state
@@ -187,9 +192,9 @@ void GameStateAsteroidsLoad(void)
 
 	AEGfxMeshStart();
 	AEGfxTriAdd(
-		-0.5f,  0.5f, 0xFFFF0000, 0.0f, 0.0f, 
-		-0.5f, -0.5f, 0xFFFF0000, 0.0f, 0.0f,
-		 0.5f,  0.0f, 0xFFFFFFFF, 0.0f, 0.0f );  
+		-0.5f,  0.5f, 0x00000000, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+		 0.5f,  0.0f, 0x00000000, 0.0f, 0.0f );
 
 	pObj->pMesh = AEGfxMeshEnd();
 	AE_ASSERT_MESG(pObj->pMesh, "fail to create object!!");
@@ -204,13 +209,13 @@ void GameStateAsteroidsLoad(void)
 
 	AEGfxMeshStart();
 	AEGfxTriAdd(
-		-0.5f, -0.5f, 0xFFFFFF00, 0.0f, 0.0f,
-		 0.5f, 0.5f, 0xFFFFFF00, 0.0f, 0.0f,
-		-0.5f, 0.5f, 0xFFFFFF00, 0.0f, 0.0f);
+		-0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+		 0.5f, 0.5f, 0x00000000, 0.0f, 0.0f,
+		-0.5f, 0.5f, 0x00000000, 0.0f, 0.0f);
 	AEGfxTriAdd(
-		-0.5f, -0.5f, 0xFFFFFF00, 0.0f, 0.0f,
-		 0.5f, -0.5f, 0xFFFFFF00, 0.0f, 0.0f,
-		 0.5f, 0.5f, 0xFFFFFF00, 0.0f, 0.0f);
+		-0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+		 0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+		 0.5f, 0.5f, 0x00000000, 0.0f, 0.0f);
 
 	pObj->pMesh = AEGfxMeshEnd();
 	AE_ASSERT_MESG(pObj->pMesh, "fail to create object!!");
@@ -241,7 +246,7 @@ void GameStateAsteroidsLoad(void)
 	// create the wall shape
 	// =========================
 
-	pObj = sGameObjList + sGameObjNum++;
+	/*pObj = sGameObjList + sGameObjNum++;
 	pObj->type = TYPE_WALL;
 
 	AEGfxMeshStart();
@@ -255,7 +260,7 @@ void GameStateAsteroidsLoad(void)
 		0.5f, 0.5f, 0x6600FF00, 0.0f, 0.0f);
 
 	pObj->pMesh = AEGfxMeshEnd();
-	AE_ASSERT_MESG(pObj->pMesh, "fail to create object!!");	
+	AE_ASSERT_MESG(pObj->pMesh, "fail to create object!!");	*/
 }
 
 /******************************************************************************/
@@ -276,8 +281,13 @@ void GameStateAsteroidsInit(void)
 	AEVec2Set(&scale, SHIP_SCALE_X, SHIP_SCALE_Y);
 	spShip = gameObjInstCreate(TYPE_SHIP, &scale, nullptr, nullptr, 0.0f);
 	AE_ASSERT(spShip);
+	// assign to myself as the server will need it
+	Myself.state.Position = spShip->posCurr;
+	Myself.state.Velocity = spShip->velCurr;
+	Myself.state.CurrentDirection = 0.0f; // Or whatever initial direction
+	Myself.state.lastFiredTime = 0.0f;
+	Myself.state.isActive = 1;
 
-	
 	// create the initial 4 asteroids instances using the "gameObjInstCreate" function
 	AEVec2 pos = { 0,0 }, vel = { 0,0 };
 
@@ -304,12 +314,12 @@ void GameStateAsteroidsInit(void)
 	AEVec2Set(&scale, ASTEROID_MIN_SCALE_X, ASTEROID_MIN_SCALE_Y);
 	gameObjInstCreate(TYPE_ASTEROID, &scale, &pos, &vel, 0.0f);
 
-	// create the static wall
-	AEVec2Set(&scale, WALL_SCALE_X, WALL_SCALE_Y);
-	AEVec2 position;
-	AEVec2Set(&position, 300.0f, 150.0f);
-	spWall = gameObjInstCreate(TYPE_WALL, &scale, &position, nullptr, 0.0f);
-	AE_ASSERT(spWall);
+	//// create the static wall
+	//AEVec2Set(&scale, WALL_SCALE_X, WALL_SCALE_Y);
+	//AEVec2 position;
+	//AEVec2Set(&position, 300.0f, 150.0f);
+	//spWall = gameObjInstCreate(TYPE_WALL, &scale, &position, nullptr, 0.0f);
+	//AE_ASSERT(spWall);
 
 
 	// reset the score and the number of ships
@@ -348,6 +358,8 @@ void GameStateAsteroidsUpdate(void)
 	// v1 = a*t + v0		//This is done when the UP or DOWN key is pressed 
 	// Pos1 = v1*t + Pos0
 	srand((unsigned int)time(NULL));
+	static f32 currentTime = 0.0f;
+	currentTime = (f32)AEGetTime(nullptr);
 	if (AEInputCheckCurr(AEVK_UP) && sShipLives >= 0)
 	{
 		AEVec2 added;
@@ -392,7 +404,6 @@ void GameStateAsteroidsUpdate(void)
 		spShip->dirCurr =  AEWrap(spShip->dirCurr, -PI, PI);
 	}
 
-
 	// Shoot a bullet if space is triggered (Create a new object instance)
 	if (AEInputCheckTriggered(AEVK_SPACE) && sShipLives >= 0)
 	{
@@ -405,7 +416,14 @@ void GameStateAsteroidsUpdate(void)
 		// Create an instance, based on BULLET_SCALE_X and BULLET_SCALE_Y
 		AEVec2Set(&scale, BULLET_SCALE_X, BULLET_SCALE_Y);
 		gameObjInstCreate(TYPE_BULLET, &scale, &spShip->posCurr, &added_vel, spShip->dirCurr);
+		Myself.state.lastFiredTime = currentTime; // update fire time
 	}
+
+	// update the myself after the finished checking input
+	Myself.state.Position = spShip->posCurr;
+	Myself.state.Velocity = spShip->velCurr;
+	Myself.state.CurrentDirection = spShip->dirCurr; // Or whatever initial direction
+	Myself.state.isActive = 1;
 
 	// ======================================================================
 	// Save previous positions
@@ -447,12 +465,11 @@ void GameStateAsteroidsUpdate(void)
 		pInst->posCurr.y += pInst->velCurr.y * (float)AEFrameRateControllerGetFrameTime();
 	}
 
-
 	// ======================================================================
 	// check for dynamic-static collisions (one case only: Ship vs Wall)
 	// [DO NOT UPDATE THIS PARAGRAPH'S CODE]
 	// ======================================================================
-	Helper_Wall_Collision();
+	//Helper_Wall_Collision();
 
 
 	// ======================================================================
@@ -560,7 +577,6 @@ void GameStateAsteroidsUpdate(void)
 	//		-- Removing the bullets as they go out of bounds (Needed for the assignment)
 	//		-- If you have a homing missile for example, compute its new orientation 
 	//			(Homing missiles are not required for the Asteroids project)
-	//		-- Update a particle effect (Not required for the Asteroids project)
 	// ===================================================================
 	for (unsigned long i = 0; i < GAME_OBJ_INST_NUM_MAX; i++)
 	{
@@ -598,6 +614,53 @@ void GameStateAsteroidsUpdate(void)
 		}
 	}
 
+	// ===================================================================
+	// update active bullets to the vector as the server will need it from client
+	// 
+	// ===================================================================
+	for (unsigned long i = 0; i < GAME_OBJ_INST_NUM_MAX; i++)
+	{
+		GameObjInst* pInst = sGameObjInstList + i;
+
+		// skip non-active object
+		if ((pInst->flag & FLAG_ACTIVE) == 0)
+			continue;
+		
+		if (pInst->pObject->type == TYPE_BULLET)
+		{
+			// create a bullet state update message
+			BulletStateUpdateMessage bulletMsg;
+			bulletMsg.playerID = Myself.playerID;  // All bullets are from the local player
+			bulletMsg.bulletState.Position = pInst->posCurr;
+			bulletMsg.bulletState.Velocity = pInst->velCurr;
+			bulletMsg.bulletState.CurrentDirection = pInst->dirCurr;
+
+			// if this is a new bullet we're tracking
+			if (bulletSpawnTimes.find(pInst) == bulletSpawnTimes.end())
+			{
+				bulletSpawnTimes[pInst] = currentTime;
+			}
+			 
+			bulletMsg.bulletState.spawnTime = bulletSpawnTimes[pInst];
+			// add to my bullets that need to be sent
+			myBullet.push_back(bulletMsg);
+		}
+	}
+
+	for (auto it = bulletSpawnTimes.begin(); it != bulletSpawnTimes.end();)
+	{
+		GameObjInst* pInst = it->first;
+		if ((pInst->flag & FLAG_ACTIVE) == 0)
+		{
+ 			it = bulletSpawnTimes.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
+
+
 	// =====================================================================
 	// calculate the matrix for all objects
 	// =====================================================================
@@ -633,6 +696,8 @@ void GameStateAsteroidsUpdate(void)
 /******************************************************************************/
 void GameStateAsteroidsDraw(void)
 {
+	static f32 currentTime = 0.0f;
+	currentTime = (f32)AEGetTime(nullptr);
 	char strBuffer[1024];
 	
 	AEGfxSetRenderMode(AE_GFX_RM_COLOR);
@@ -653,13 +718,90 @@ void GameStateAsteroidsDraw(void)
 		// skip non-active object
 		if ((pInst->flag & FLAG_ACTIVE) == 0)
 			continue;
-		
+		Myself.playerID = 4;
 		// Set the current object instance's transform matrix using "AEGfxSetTransform"
 		AEGfxSetTransform(pInst->transform.m);
 		// Draw the shape used by the current object instance using "AEGfxMeshDraw"
-		AEGfxMeshDraw(pInst->pObject->pMesh, AE_GFX_MDM_TRIANGLES);
+		if (pInst->pObject->type == TYPE_SHIP || pInst->pObject->type == TYPE_BULLET)
+		{
+			SetPlayerColor(Myself.playerID);
+			AEGfxMeshDraw(pInst->pObject->pMesh, AE_GFX_MDM_TRIANGLES);
+		}
+		else
+		{
+			AEGfxSetColorToAdd(0.f,0.f,0.f,0.f);
+			AEGfxMeshDraw(pInst->pObject->pMesh, AE_GFX_MDM_TRIANGLES);
+		}
 	}
 
+	// draw for other client's ship
+	for (const auto& [id, shipMsg] : PlayerList)
+	{
+		const ShipsState& ship = shipMsg.state;
+		if (!ship.isActive) continue;
+
+		f32 deltaTime = currentTime - shipMsg.lastUpdatedTime;
+
+		// Predict new position
+		AEVec2 predictedPos;
+		predictedPos.x = shipMsg.state.Position.x + shipMsg.state.Velocity.x * deltaTime;
+		predictedPos.y = shipMsg.state.Position.y + shipMsg.state.Velocity.y * deltaTime;
+
+		AEMtx33 scale, rot, trans, transform;
+		AEMtx33Scale(&scale, SHIP_SCALE_X, SHIP_SCALE_Y);
+		AEMtx33Rot(&rot, ship.CurrentDirection);
+		AEMtx33Trans(&trans, predictedPos.x, predictedPos.y);
+		AEMtx33Concat(&rot, &rot, &scale);
+		AEMtx33Concat(&transform, &trans, &rot);
+
+		// Set the transform and draw the ship
+		AEGfxSetTransform(transform.m);
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-0.5f, 0.5f, 0x00000000, 0.0f, 0.0f,
+			-0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+			0.5f, 0.0f, 0x00000000, 0.0f, 0.0f);
+
+		AEGfxVertexList* ShipMesh = AEGfxMeshEnd();
+		SetPlayerColor(shipMsg.playerID);
+		AEGfxMeshDraw(ShipMesh, AE_GFX_MDM_TRIANGLES);
+		AEGfxMeshFree(ShipMesh);
+	}
+
+	// draw other client's bullets
+	for (auto& [id, bulletMsg] : BulletList)
+	{
+		f32 deltaTime = currentTime - bulletMsg.lastUpdatedTime;
+
+		// Predict new position
+		AEVec2 predictedPos;
+		predictedPos.x = bulletMsg.bulletState.Position.x + bulletMsg.bulletState.Velocity.x * deltaTime;
+		predictedPos.y = bulletMsg.bulletState.Position.y + bulletMsg.bulletState.Velocity.y * deltaTime;
+
+		// Compute transformation
+		AEMtx33 scale, rot, trans, transform;
+		AEMtx33Scale(&scale, 0.5f, 0.5f); // Adjust bullet size
+		AEMtx33Rot(&rot, bulletMsg.bulletState.CurrentDirection);
+		AEMtx33Trans(&trans, predictedPos.x, predictedPos.y);
+		AEMtx33Concat(&rot, &rot, &scale);
+		AEMtx33Concat(&transform, &trans, &rot);
+
+		// Apply transform and draw
+		AEGfxSetTransform(transform.m);
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+			0.5f, 0.5f, 0x00000000, 0.0f, 0.0f,
+			-0.5f, 0.5f, 0x00000000, 0.0f, 0.0f);
+		AEGfxTriAdd(
+			-0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+			0.5f, -0.5f, 0x00000000, 0.0f, 0.0f,
+			0.5f, 0.5f, 0x00000000, 0.0f, 0.0f);
+		AEGfxVertexList* bulletMesh = AEGfxMeshEnd();
+		SetPlayerColor(bulletMsg.playerID);
+		AEGfxMeshDraw(bulletMesh, AE_GFX_MDM_TRIANGLES);
+		AEGfxMeshFree(bulletMesh);
+	}
 	//You can replace this condition/variable by your own data.
 	//The idea is to display any of these variables/strings whenever a change in their value happens
 	if(onValueChange)
@@ -687,7 +829,6 @@ void GameStateAsteroidsDraw(void)
 			onValueChange = false; // once print set it to false
 		}
 	}
-	
 }
 
 /******************************************************************************/
@@ -880,4 +1021,39 @@ void Random_number_asteroid_generator(int& number)
 	time_t t;
 	srand((unsigned)time(&t));
 	number = (rand() % 2) + 1; // generate 1 or 2, as modulo 2 will give 0 or 1 , then +1 will get 1 or 2
+}
+
+/******************************************************************************/
+/*!
+	Set player Color based on their unique ID
+*/
+/******************************************************************************/
+void SetPlayerColor(uint8_t playerID)
+{
+	float r, g, b;
+	if (playerID == 1)
+	{
+		r = 0.784f;
+		g = 0.392f;
+		b = 0.392f;
+	}
+	else if (playerID == 2)
+	{
+		r = 0.564f;
+		g = 1.0f;
+		b = 0.564f;
+	}
+	else if (playerID == 3)
+	{
+		r = 0.47f;
+		g = 0.71f;
+		b = 0.78f;
+	}
+	else 
+	{
+		r = 0.705f;
+		g = 0.392f;
+		b = 0.784f;
+	}
+	AEGfxSetColorToAdd(r, g, b, 1.0f);
 }

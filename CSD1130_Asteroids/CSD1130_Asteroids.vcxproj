@@ -112,6 +112,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\Dep\AlphaEngine\Include;Include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,6 +155,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\Dep\AlphaEngine\Include;Include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,18 +170,19 @@
   <ItemGroup>
     <ClInclude Include="Include\AsteroidData.h" />
     <ClInclude Include="Include\Collision.h" />
+    <ClInclude Include="Include\CommandID.h" />
     <ClInclude Include="Include\GameStateList.h" />
     <ClInclude Include="Include\GameStateMgr.h" />
     <ClInclude Include="Include\GameState_Asteroids.h" />
     <ClInclude Include="Include\Main.h" />
-    <ClInclude Include="ShipsData.h" />
+    <ClInclude Include="Include\ShipsData.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ShipsData.cpp" />
     <ClCompile Include="Src\Collision.cpp" />
     <ClCompile Include="Src\GameStateMgr.cpp" />
     <ClCompile Include="Src\GameState_Asteroids.cpp" />
     <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\ShipsData.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,8 +1,2 @@
-﻿  ShipsData.cpp
-  Collision.cpp
-  GameStateMgr.cpp
-  GameState_Asteroids.cpp
-  Main.cpp
-  Generating Code...
-C:\Users\ASUS ROG ZEPHYRUS\source\repos\Asteroid_Network\CSD1130_Asteroids\Src\Collision.cpp(269,1): warning C4702: unreachable code
+﻿  GameState_Asteroids.cpp
   CSD1130_Asteroids.vcxproj -> C:\Users\ASUS ROG ZEPHYRUS\source\repos\Asteroid_Network\Bin\CSD1130_AsteroidsD.exe
